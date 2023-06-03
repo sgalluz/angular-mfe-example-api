@@ -1,4 +1,3 @@
-import http from "http";
 import express, { Express } from "express";
 import morgan from "morgan";
 import helmet from "helmet";
@@ -23,6 +22,6 @@ router.use("/api/test", testRoutes);
 router.use(errorHandler);
 
 const PORT: any = process.env.PORT ?? 3000;
-http
-  .createServer(router)
-  .listen(PORT, () => console.log(`Mock server is running on port ${PORT}`));
+router.listen(PORT, () =>
+  console.log(`Mock server is running on port ${PORT}`)
+);
